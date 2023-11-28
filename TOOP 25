@@ -1,0 +1,45 @@
+#include <Arduino.h>
+#include <Pololu3piPlus32U4.h>
+using namespace Pololu3piPlus32U4;
+#include <Arduino.h>
+
+
+OLED display;
+
+class exampleRobot
+{
+private:
+    String line1;
+public:
+
+void setline(String l)
+{
+    line1 = l;
+}
+
+void dispLine()
+{
+    display.print(line1);
+}
+};
+
+exampleRobot::exampleRobot()
+{
+    display.setLayout21x8();
+}
+
+
+exampleRobot bot;
+
+
+void setup() 
+{
+bot.setline("Go Bears");    
+
+}
+
+void loop() 
+{
+    bot.dispLine();
+
+}
